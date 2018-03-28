@@ -235,7 +235,7 @@ async def on_message(message):
       if "419904679124664321" in [role.id for role in message.author.roles]:
          muted = discord.utils.get(message.server.roles, name="Muted")
          await client.remove_roles(message.mentions[0], muted)
-         await client.send_message(message.channel, "<@%s> :white_check_mark: You have unmuted <@%s>!" % (message.author.id, message.mentions[0].id))
+         await client.send_message(message.channel, "<@%s> :white_check_mark: You have unmuted <@%s>! Made a mistake? Use `?mute @user`" % (message.author.id, message.mentions[0].id))
       else:
          await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run that command!" % (message.author.id))
     if message.content.upper().startswith('?ANNOUNCE'):
