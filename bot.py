@@ -12,7 +12,6 @@ client = commands.Bot(command_prefix = "?")
 @client.event
 async def on_ready():
   print("Management || Bot is Online and ready.")
-  serversIn = len(client.servers)
   await client.change_presence(game=discord.Game(name="Fire Mania Management | ?help"))
 
 
