@@ -27,7 +27,7 @@ async def on_message(message):
         emb = (discord.Embed(description=None, colour=0x3DF270))
         emb.add_field(name="Welcome to Fire Mania Management!",value="I am here to serve and protect this server. For version info, say `?version`. I am still being coded and I barely have commands, but that will change!",inline=False)
         print("%s ran the ?help command!" % (message.author.id))
-        await self.send(message.channel, embed=emb)
+        await self.send(embed=emb)
     if message.content.upper().startswith('?VERSION'):
        emb = (discord.Embed(description=None, colour=0x3DF270))
        emb.add_field(name="Version", value="I am in Alpha stages. I am still being made and some features might not work.", inline=False)
