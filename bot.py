@@ -247,5 +247,15 @@ async def on_message(message):
          await client.send_message(announcechannel, embed=emb)
       else:
          await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run that command!" % (message.author.id))
-    
+    if message.content.upper().startswith('?PIN'):
+      if "419904679124664321" in [role.id for role in message.author.roles]:
+        args = message.content.split(" ")
+        await client.pin_message(" ".join(args[1:]))
+        emb = (discord.Embed(description=None, colour=0xFFA500))
+        emb.add_field(name="Success", value="You have pinned the message id **%s**" % (" ".join(args[1:])), inline=False)
+        await client.send_message(message.channel, embed=emb)
+      else:
+        emb = (discord.Embed(description=None, colour=0xFF0000))
+        emb.add_field(name="Task Failure", value="You are not an admin and cannot do this!", inline=False)
+        await client.send_message(message.channel, embed=emb)
 client.run("NDE5OTA0MDkxNjA3NjYyNTky.DX27wA.zctI11rIHCQlRQVGYOXGqDSLhNs")
