@@ -1,4 +1,4 @@
-[[source]]
+[[source
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 
@@ -11,3 +11,4 @@ whitenoise = "*"
 
 [requires]
 python_version = "3.6"
+]]
