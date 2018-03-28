@@ -243,6 +243,7 @@ async def on_message(message):
          announcechannel = client.get_channel("419590200805687296")
          emb = (discord.Embed(description=None, colour=0xFFA500))
          emb.add_field(name="Announcement by %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
+         await client.send_message(announcechannel, "<@&427167017917743114>")
          await client.send_message(announcechannel, embed=emb)
       else:
          await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run that command!" % (message.author.id))
