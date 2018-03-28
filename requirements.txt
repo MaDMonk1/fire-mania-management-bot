@@ -11,4 +11,4 @@ crasync
 cr-py
 urban-async
 safygiphy
-bot.py
+discord
