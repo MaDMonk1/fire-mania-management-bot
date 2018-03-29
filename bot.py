@@ -99,7 +99,7 @@ async def on_message(message):
              await client.send_message(message.channel, ":white_check_mark: <@%s> %s has been blacklisted from creating invites!" % (message.author.id, mentionID))
        else:
           await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run this command!" % (message.author.id))
-    if message.content.upper().startswith('?INVWHITELIST') or message.content.upper().startswith('*INVWHITELIST') or message.content.upper().startswith('-INVWHITELIST') or if message.content.upper().startswith('>INVWHITELIST'):
+    if message.content.upper().startswith('?INVWHITELIST') or message.content.upper().startswith('*INVWHITELIST') or message.content.upper().startswith('-INVWHITELIST') or message.content.upper().startswith('>INVWHITELIST'):
        if "419904679124664321" in [role.id for role in message.author.roles]:
           perms = True
           for item in invBlacklist:
