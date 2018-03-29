@@ -7,16 +7,6 @@ import random
 import datetime
 import sqlite3
 
-conn = sqlite3.connect('coinDatabase.db')
-cur = conn.cursor()
-
-def create_table():
-  cur.execute('CREATE TABLE IF NOT EXISTS coinStorage(user TEXT, coins REAL)')
-
-def data_entry():
-  cur.execute('INSERT INTO coinStorage VALUES("GalaxyGaming#5633", 100)')
-  conn.commit()
-  cur.close()
   
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
@@ -39,7 +29,7 @@ async def on_message(message):
         emb = (discord.Embed(description=None, colour=0x3DF270))
         emb.add_field(name="Welcome to Fire Mania Management!",value="I am here to serve and protect this server. For version info, say `?version`. I am still being coded and I barely have commands, but that will change!",inline=False)
         print("%s ran the ?help command!" % (message.author.id))
-        await self.send(embed=emb)
+        await client.send_message(embed=emb)
     if message.content.upper().startswith('?VERSION') or message.content.upper().startswith('!VERSION') or message.content.upper().startswith('-VERSION') or message.content.upper().startswith('>VERSION'):
        emb = (discord.Embed(description=None, colour=0x3DF270))
        emb.add_field(name="Version", value="I am in Alpha stages. I am still being made and some features might not work.", inline=False)
