@@ -30,15 +30,15 @@ async def on_message(message):
         emb.add_field(name="Welcome to Fire Mania Management!",value="I am here to serve and protect this server. For version info, say `?version`. I am still being coded and I barely have commands, but that will change!",inline=False)
         print("%s ran the ?help command!" % (message.author.id))
         await client.send_message(message.channel, embed=emb)
-    if message.content.upper().startswith('?VERSION') or message.content.upper().startswith('!VERSION') or message.content.upper().startswith('-VERSION') or message.content.upper().startswith('>VERSION'):
+    if message.content.upper().startswith('?VERSION') or message.content.upper().startswith('*VERSION') or message.content.upper().startswith('-VERSION') or message.content.upper().startswith('>VERSION'):
        emb = (discord.Embed(description=None, colour=0x3DF270))
        emb.add_field(name="Version", value="I am in Alpha stages. I am still being made and some features might not work.", inline=False)
        await client.send_message(message.channel, embed=emb)
        print("%s ran the ?version command!" % (message.author.id))
-    if message.content.upper().startswith('?CHANNEL'):
+    if message.content.upper().startswith('?CHANNEL') or message.content.upper().startswith('*CHANNEL') or message.content.upper().startswith('-CHANNEL') or message.content.upper().startswith('>CHANNEL'):
           if "419904679124664321" in [role.id for role in message.author.roles]:
               await client.create_channel(message.server, "TEST", type=discord.ChannelType.text)
-    if message.content.upper().startswith('?CREATE TEXT'):
+    if message.content.upper().startswith('?CREATE TEXT') or message.content.upper().startswith('*CREATE TEXT') or message.content.upper().startswith('-CREATE TEXT') or message.content.upper().startswith('>CREATE TEXT'):
         args = message.content.split(" ")
         if "419904679124664321" in [role.id for role in message.author.roles]:
                 emb = (discord.Embed(description=None, colour=0x3DF270))
@@ -50,7 +50,7 @@ async def on_message(message):
             emb = (discord.Embed(description=None, colour=0xff0000))
             emb.add_field(name="Failed Channel Creation", value="I failed to create a text channel! You do not have administrative previlages.", inline=False)
             await client.send_message(message.channel, embed=emb)
-    if message.content.upper().startswith('?CREATE VOICE'):
+    if message.content.upper().startswith('?CREATE VOICE') or message.content.upper().startswith('*CREATE VOICE') or message.content.upper().startswith('-CREATE VOICE') or message.content.upper().startswith('>CREATE VOICE'):
         args = message.content.split(" ")
         if "419904679124664321" in [role.id for role in message.author.roles]:
                 emb = (discord.Embed(description=None, colour=0x3DF270))
@@ -62,13 +62,7 @@ async def on_message(message):
             emb = (discord.Embed(description=None, colour=0xff0000))
             emb.add_field(name="Failed Channel Creation", value="I failed to create a voice channel! You do not have administrative previlages.", inline=False)
             await client.send_message(message.channel, embed=emb)
-
-    if message.content.upper().startswith('?LOCKJOIN'):
-      if "419904679124664321" in [role.id for role in message.author.roles]:
-         await client.send_message(message.channel, ":lock: The bot has been placed in server lockdown mode. I will not be able to join any new servers.")
-      else:
-        await client.send_message(message.channel, ":x: You do not have administrative previlages. You cannot use this command.")
-    if message.content.upper().startswith('?INVITE'):
+    if message.content.upper().startswith('?INVITE') or message.content.upper().startswith('*INVITE') or message.content.upper().startswith('-INVITE') or message.content.upper().startswith('>INVITE'):
        perms = True
        for item in invBlacklist:
          if item == message.author.id:
@@ -78,7 +72,7 @@ async def on_message(message):
           await client.send_message(message.channel, ":white_check_mark: Invite your friend with this invite! Note that it can ONLY be used once. Here's the invite: %s" % (invite))
        elif perms == False:
           await client.send_message(message.channel, "<@%s> :x: You have been blacklisted from creating invites. If this is a mistake, please mention/message a Bot Administrator" % (message.author.id))
-    if message.content.upper().startswith('?VIEWINVITE'):
+    if message.content.upper().startswith('?VIEWINVITE') or message.content.upper().startswith('*VIEWINVITE') or message.content.upper().startswith('-VIEWINVITE') or message.content.upper().startswith('?VIEWINVITE'):
        if "419904679124664321" in [role.id for role in message.author.roles]:
           args = message.content.split(" ")
           invite12 = await client.get_invite("http://discord.gg/%s" % " ".join(args[1:]))
@@ -90,7 +84,7 @@ async def on_message(message):
           await client.send_message(message.channel, embed=emb)
        else:
           await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run this command!" % (message.author.id))
-    if message.content.upper().startswith('?INVBLOCK'):
+    if message.content.upper().startswith('?INVBLOCK') or message.content.upper().startswith('*INVBLOCK') or message.content.upper().startswith('-INVBLOCK') or message.content.upper().startswith('>INVBLOCK'):
        if "419904679124664321" in [role.id for role in message.author.roles]:
           perms = True
           for item in invBlacklist:
@@ -105,7 +99,7 @@ async def on_message(message):
              await client.send_message(message.channel, ":white_check_mark: <@%s> %s has been blacklisted from creating invites!" % (message.author.id, mentionID))
        else:
           await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run this command!" % (message.author.id))
-    if message.content.upper().startswith('?INVWHITELIST'):
+    if message.content.upper().startswith('?INVWHITELIST') or message.content.upper().startswith('*INVWHITELIST') or message.content.upper().startswith('-INVWHITELIST') or if message.content.upper().startswith('>INVWHITELIST'):
        if "419904679124664321" in [role.id for role in message.author.roles]:
           perms = True
           for item in invBlacklist:
@@ -120,12 +114,12 @@ async def on_message(message):
              await client.send_message(message.channel, ":white_check_mark: <@%s> %s has been whitelisted and can now create invites!" % (message.author.id, mentionID))
        else:
           await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run this command!" % (message.author.id))
-    if message.content.upper().startswith('?INVBLACKLIST'):
+    if message.content.upper().startswith('?INVBLACKLIST') or message.content.upper().startswith('*INVBLACKLIST') or message.content.upper().startswith('-INVBLACKLIST') or message.content.upper().startswith('>INVBLACKLIST'):
        if "419904679124664321" in [role.id for role in message.author.roles]:
          await client.send_message(message.channel, ":white_check_mark: <@%s> The following people are blacklisted from creating invites: %s" % (message.author.id, ", ".join(invBlacklist)))
        else:
          await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run this command!" % (message.author.id))
-    if message.content.upper().startswith('?8BALL'):
+    if message.content.upper().startswith('?8BALL') or message.content.upper().startswith('*8BALL') or message.content.upper().startswith('-8BALL') or message.content.upper().startswith('>8BALL'):
         userID = message.author.id
         randnum = random.randint(1,11)
         if randnum == 1:
@@ -141,14 +135,14 @@ async def on_message(message):
         if randnum == 6:
             await client.send_message(message.channel, "<@%s> :8ball: I see it in the future. :8ball:" % (userID))
         if randnum == 7:
-            await client.send_message(message.channel, "<@%s> :8ball: There is an amazing chance. :8ball:" % (userID))
+            await client.send_message(message.channel, "<@%s> :8ball: There is an great chance. :8ball:" % (userID))
         if randnum == 8:
             await client.send_message(message.channel, "<@%s> :8ball: I do not see this happening. :8ball:" % (userID))
         if randnum == 9:
             await client.send_message(message.channel, "<@%s> :8ball: I see something positive. :8ball:" % (userID))
         if randnum == 10:
             await client.send_message(message.channel, "<@%s> :8ball: I don't see it. You may as well walk away. :8ball:" % (userID))
-    if message.content.upper().startswith('?COOKIE'):
+    if message.content.upper().startswith('?COOKIE') or message.content.upper().startswith('*COOKIE') or message.content.upper().startswith('-COOKIE') or message.content.upper().startswith('>COOKIE'):
        userID = message.author.id
        mentionID = message.mentions[0].id
        if userID == mentionID:
@@ -160,7 +154,7 @@ async def on_message(message):
          await client.add_reaction(message, "\U0001F1F9")
          await client.add_reaction(message, "\U0001F1ED")
          await client.add_reaction(message, "\U0001F1FD")
-    if message.content.upper().startswith('?HUG'):
+    if message.content.upper().startswith('?HUG') or message.content.upper().startswith('*HUG') or message.content.upper().startswith('-HUG') or message.content.upper().startswith('>HUG'):
        userID = message.author.id
        mentionID = message.mentions[0].id
        if userID == mentionID:
@@ -170,7 +164,7 @@ async def on_message(message):
        elif mentionID == "419904091607662592":
          await client.send_message(message.channel, "<@%s>, are you being serious? I LOVE HUGS!!!!!!!!! :revolving_hearts:" % (userID))
          await client.add_reaction(message, "\u2665")
-    if message.content.upper().startswith('?PUNCH'):
+    if message.content.upper().startswith('?PUNCH') or message.content.upper().startswith('*PUNCH') or message.content.upper().startswith('-PUNCH') or message.content.upper().startswith('>PUNCH'):
        userID = message.author.id
        mentionID = message.mentions[0].id
        if userID == mentionID:
@@ -181,7 +175,7 @@ async def on_message(message):
          await client.send_message(message.channel, "<@%s>, NO NO NO NO NO NO NO NO NO. Don't do it. :face_palm:" % (userID))
          await client.add_reaction(message, "\U0001F1F3")
          await client.add_reaction(message, "\U0001F1F4")
-    if message.content.upper().startswith('?SLAP'):
+    if message.content.upper().startswith('?SLAP') or message.content.upper().startswith('*SLAP') or message.content.upper().startswith('-SLAP') or message.content.upper().startswith('>SLAP'):
        userID = message.author.id
        mentionID = message.mentions[0].id
        if userID == mentionID:
@@ -191,7 +185,7 @@ async def on_message(message):
        elif mentionID == "419904091607662592":
          await client.send_message(message.channel, "<@%s>, what did I do to deserve this?? I am just programmed to do stuff OKAY?!?! :cloud_lightning:" % (userID))
          await client.add_reaction(message, "\U0001F620")
-    if message.content.upper().startswith('?SUBSCRIBE'):
+    if message.content.upper().startswith('?SUBSCRIBE') or message.content.upper().startswith('*SUBSCRIBE') or message.content.upper().startswith('-SUBSCRIBE') or message.content.upper().startswith('>SUBSCRIBE'):
       if "427167017917743114" in [role.id for role in message.author.roles]:
          await client.send_message(message.channel, "<@%s> :x: You are already a subscriber!" % (message.author.id))
       else:
@@ -261,4 +255,10 @@ async def on_message(message):
         emb = (discord.Embed(description=None, colour=0xFF0000))
         emb.add_field(name="Task Failure", value="You are not an admin and cannot do this!", inline=False)
         await client.send_message(message.channel, embed=emb)
+     if message.content.upper().startswith('!ISBOT'):
+        mention = message.mentions[0]
+        if mention.bot == true:
+           await client.send_message(message.channel, "%s is a bot member!" % (mention))
+        else:
+           await client.send_message(message.channel, "%s is not a bot member!" % (mention))
 client.run("NDE5OTA0MDkxNjA3NjYyNTky.DX27wA.zctI11rIHCQlRQVGYOXGqDSLhNs")
