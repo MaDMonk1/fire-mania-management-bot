@@ -259,6 +259,6 @@ async def on_message(message):
        mention = message.mentions[0]
        if mention.bot == True:
           await client.send_message(message.channel, "%s is a bot member!" % (mention))
-       else:
+       elif mention.bot == False:
           await client.send_message(message.channel, "%s is not a bot member!" % (mention))
 client.run("NDE5OTA0MDkxNjA3NjYyNTky.DX27wA.zctI11rIHCQlRQVGYOXGqDSLhNs")
