@@ -257,7 +257,7 @@ async def on_message(message):
         await client.send_message(message.channel, embed=emb)
      if message.content.upper().startswith('!ISBOT'):
         mention = message.mentions[0]
-        if mention.bot == true:
+        if mention.bot == True:
            await client.send_message(message.channel, "%s is a bot member!" % (mention))
         else:
            await client.send_message(message.channel, "%s is not a bot member!" % (mention))
