@@ -255,7 +255,7 @@ async def on_message(message):
         emb = (discord.Embed(description=None, colour=0xFF0000))
         emb.add_field(name="Task Failure", value="You are not an admin and cannot do this!", inline=False)
         await client.send_message(message.channel, embed=emb)
-     if message.content.upper().startswith('!ISBOT'):
+    if message.content.upper().startswith('!ISBOT'):
         mention = message.mentions[0]
         if mention.bot == True:
            await client.send_message(message.channel, "%s is a bot member!" % (mention))
