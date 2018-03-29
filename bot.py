@@ -256,9 +256,9 @@ async def on_message(message):
         emb.add_field(name="Task Failure", value="You are not an admin and cannot do this!", inline=False)
         await client.send_message(message.channel, embed=emb)
     if message.content.upper().startswith('!ISBOT'):
-        mention = message.mentions[0]
-        if mention.bot == True:
-           await client.send_message(message.channel, "%s is a bot member!" % (mention))
-        else:
-           await client.send_message(message.channel, "%s is not a bot member!" % (mention))
+       mention = message.mentions[0]
+       if mention.bot == True:
+          await client.send_message(message.channel, "%s is a bot member!" % (mention))
+       else:
+          await client.send_message(message.channel, "%s is not a bot member!" % (mention))
 client.run("NDE5OTA0MDkxNjA3NjYyNTky.DX27wA.zctI11rIHCQlRQVGYOXGqDSLhNs")
