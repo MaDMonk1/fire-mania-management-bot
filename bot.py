@@ -250,7 +250,8 @@ async def on_message(message):
     if message.content.upper().startswith('?PIN'):
       if "419904679124664321" in [role.id for role in message.author.roles]:
         args = message.content.split(" ")
-        await client.pin_message(" ".join(args[1:]))
+        msg = await client.get_message(message.channel, " ".join(args[1:]))
+        await client.pin_message(msg)
         emb = (discord.Embed(description=None, colour=0xFFA500))
         emb.add_field(name="Success", value="You have pinned the message id **%s**" % (" ".join(args[1:])), inline=False)
         await client.send_message(message.channel, embed=emb)
