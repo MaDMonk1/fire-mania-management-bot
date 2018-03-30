@@ -276,7 +276,7 @@ async def on_message(message):
            c.execute('SELECT * FROM coinStorage')
            data = c.fetchall()
            for row in data:
-              if row[0] == message.author:
+              if row[0] == str(message.author):
                  emb = (discord.Embed(description=None, colour=0x3DF270))
                  emb.add_field(name="Coins", value="You have %s coins!" % (row[1]), inline=False)
                  await client.send_message(message.channel, embed=emb)
