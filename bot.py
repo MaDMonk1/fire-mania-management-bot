@@ -8,7 +8,7 @@ import datetime
 import sqlite3
 
 coinconn = sqlite3.connect('coinStorage.db')
-c = conn.cursor()
+c = coinconn.cursor()
 
 
 Client = discord.Client()
