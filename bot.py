@@ -34,6 +34,17 @@ async def on_message_delete(message):
   emb.add_field(name="Message", value="%s" % (message.content), inline=False)
   await client.send_message(logschannel, embed=emb)
 
+@client.event 
+
+async def on_message_edit(before, after):
+  logschannel = client.get_channel("429372917839822858")
+  emb = (discord.Embed(description=None, colour=0xFF0000))
+  emb.add_field(name="Edited Message",value="A message was edited in <#%s>" % (after.channel.id),inline=False)
+  emb.add_field(name="Message edited by", value="%s" % (after.content), inline=False)
+  emb.add_field(name="Message (Original)", value="%s" % (before.content), inline=False)
+  emb.add_field(name="Message (Edited)", value="%s" % (after.content), inline=False)
+  await client.send_message(logschannel, embed=emb)
+ 
 @client.event
 
 async def on_message(message):
