@@ -7,7 +7,10 @@ import random
 import datetime
 import sqlite3
 
-  
+coinconn = sqlite3.connect('coinStorage.db')
+c = conn.cursor()
+
+
 Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
 
@@ -255,10 +258,25 @@ async def on_message(message):
         emb = (discord.Embed(description=None, colour=0xFF0000))
         emb.add_field(name="Task Failure", value="You are not an admin and cannot do this!", inline=False)
         await client.send_message(message.channel, embed=emb)
-    if message.content.upper().startswith('!ISBOT'):
-       mention = message.mentions[0]
-       if mention.bot == True:
-          await client.send_message(message.channel, "%s is a bot member!" % (mention))
-       elif mention.bot == False:
-          await client.send_message(message.channel, "%s is not a bot member!" % (mention))
+    if message.content.upper().startswith('?COINS SET'):
+       c.execute("CREATE TABLE IF NOT EXISTS coinStorage(user TEXT, coins INTEGER)")
+       emb = (discord.Embed(description=None, colour=0x3DF270))
+       emb.add_field(name="Success", value="You have added a table to the Coin Storage Database!", inline=False)
+       await client.send_message(message.channel, embed=emb)
+    if message.content.upper().startswith('?COINS REGISTER'):
+       c.execute("INSERT INTO coinStorage VALUES(%s, 100)" % (message.author))
+       coinconn.commit()
+       emb = (discord.Embed(description=None, colour=0x3DF270))
+       emb.add_field(name="Success", value="You have registered yourself to the Coin Storage Database! User: `%s` | Coins: `100`" % (message.author), inline=False)
+       await client.send_message(message.channel, embed=emb)
+    if message.content.upper().startswith('?COINS'):
+           c.execute('SELECT * FROM stuffToPlot')
+           data = c.fetchall()
+           for row in data:
+              if row[0] == message.author:
+                 emb = (discord.Embed(description=None, colour=0x3DF270))
+                 emb.add_field(name="Coins", value="You have %s coins!" % (row[1]), inline=False)
+                 await client.send_message(message.channel, embed=emb)
+       coinconn.commit()
+
 client.run("NDE5OTA0MDkxNjA3NjYyNTky.DX27wA.zctI11rIHCQlRQVGYOXGqDSLhNs")
