@@ -258,19 +258,19 @@ async def on_message(message):
         emb = (discord.Embed(description=None, colour=0xFF0000))
         emb.add_field(name="Task Failure", value="You are not an admin and cannot do this!", inline=False)
         await client.send_message(message.channel, embed=emb)
-    if message.content.upper().startswith('?COINS SET'):
+    if message.content.upper().startswith('?SET'):
        c.execute("CREATE TABLE IF NOT EXISTS coinStorage(user TEXT, coins INTEGER)")
        emb = (discord.Embed(description=None, colour=0x3DF270))
        emb.add_field(name="Success", value="You have added a table to the Coin Storage Database!", inline=False)
        await client.send_message(message.channel, embed=emb)
-    if message.content.upper().startswith('?COINS REGISTER'):
+    if message.content.upper().startswith('?REGISTER'):
        user = str(message.author)
-       val = int(100)
+       val = int(1000)
        c.execute("INSERT INTO coinStorage VALUES (?, ?)",
           (user, val))
        coinconn.commit()
        emb = (discord.Embed(description=None, colour=0x3DF270))
-       emb.add_field(name="Success", value="You have registered yourself to the Coin Storage Database! User: `%s` | Coins: `100`" % (message.author), inline=False)
+       emb.add_field(name="Success", value="You have registered yourself to the Coin Storage Database! User: `%s` | Coins: `1000`" % (message.author), inline=False)
        await client.send_message(message.channel, embed=emb)
     if message.content.upper().startswith('?COINS'):
            c.execute('SELECT * FROM coinStorage')
