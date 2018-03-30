@@ -277,6 +277,5 @@ async def on_message(message):
                  emb = (discord.Embed(description=None, colour=0x3DF270))
                  emb.add_field(name="Coins", value="You have %s coins!" % (row[1]), inline=False)
                  await client.send_message(message.channel, embed=emb)
-       coinconn.commit()
 
 client.run("NDE5OTA0MDkxNjA3NjYyNTky.DX27wA.zctI11rIHCQlRQVGYOXGqDSLhNs")
