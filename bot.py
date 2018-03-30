@@ -270,7 +270,7 @@ async def on_message(message):
        emb.add_field(name="Success", value="You have registered yourself to the Coin Storage Database! User: `%s` | Coins: `100`" % (message.author), inline=False)
        await client.send_message(message.channel, embed=emb)
     if message.content.upper().startswith('?COINS'):
-           c.execute('SELECT * FROM stuffToPlot')
+           c.execute('SELECT * FROM coinStorage')
            data = c.fetchall()
            for row in data:
               if row[0] == message.author:
