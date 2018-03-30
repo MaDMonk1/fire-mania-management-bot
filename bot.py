@@ -26,6 +26,11 @@ numOfMessages = 0
 
 @client.event
 
+async def on_message_delete(message):
+  logschannel = client.get_channel("429372917839822858")
+
+@client.event
+
 async def on_message(message):
     numOfMessages +1
     if message.content.upper().startswith('?HELP'):
