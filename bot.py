@@ -29,7 +29,7 @@ numOfMessages = 0
 async def on_message_delete(message):
   logschannel = client.get_channel("429372917839822858")
   emb = (discord.Embed(description=None, colour=0xFF0000))
-  emb.add_field(name="Message Deletion",value="A message was deleted in %s" % (message.channel),inline=False)
+  emb.add_field(name="Message Deletion",value="A message was deleted in <#%s>" % (message.channel.id),inline=False)
   emb.add_field(name="Message created by", value="%s" % (message.author), inline=False)
   emb.add_field(name="Message", value="%s" % (message.content), inline=False)
   await client.send_message(logschannel, embed=emb)
