@@ -264,9 +264,9 @@ async def on_message(message):
        emb.add_field(name="Success", value="You have added a table to the Coin Storage Database!", inline=False)
        await client.send_message(message.channel, embed=emb)
     if message.content.upper().startswith('?COINS REGISTER'):
-       user = message.author
+       user = str(message.author)
        c.execute("INSERT INTO coinStorage VALUES (?, 100)",
-          (str(user)))
+          (user))
        coinconn.commit()
        emb = (discord.Embed(description=None, colour=0x3DF270))
        emb.add_field(name="Success", value="You have registered yourself to the Coin Storage Database! User: `%s` | Coins: `100`" % (message.author), inline=False)
