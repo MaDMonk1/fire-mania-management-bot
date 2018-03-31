@@ -59,7 +59,7 @@ async def on_message(message):
                                                     emb2.add_field(name="Success!", value="I successfully created a bug report ticket! You have reported the following: %s" % (" ".join(args[1:])), inline=False)
                                                     await client.send_message(message.channel, embed=emb2)
                                                     await client.send_message(chan, embed=emb)
-    if message.content.upper().startswith('?INFO'):
+    if message.content.upper().startswith('?INFORM'):
                                                     embed = discord.Embed(name="SASRP's info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
                                                     embed.set_author(name="SASRP")
                                                     embed.add_field(name="Name", value=ctx.message.server.name, inline=True)
@@ -91,7 +91,7 @@ async def on_message(message):
     if message.content.upper().startswith('?CMDS'):
                                                   embed3 = (discord.Embed(description=None, colour=0x00ff00))
                                                   embed3.set_author(name="Server Commands")
-                                                  embed3.add_field(name="?INFO", value="?LINKS", inline=True)
+                                                  embed3.add_field(name="?INFORM", value="?LINKS", inline=True)
                                                   embed3.add_field(name="-gives you server information", value="-gives you links to the website and the CAD", inline=True)
                                                   embed3.add_field(name="N/A", value="N/A", inline=True)
                                                   embed3.add_field(name="N/A", value="N/A", inline=True)
