@@ -21,21 +21,13 @@ async def on_member_join(member):
   await client.add_roles(member, role)
   emb = (discord.Embed(description=None, colour=0x3DF270))
   welcome = client.get_channel("417043672144543765")
-  emb.add_field(name="New Member", value="Welcome to SASRP, <@%s>! Have a great time with your RP. Before going anywhere, feel free to check out the useful links text channel! If you need staff, feel free to use @staff and staff will be with you as soon as possible! " % (member.id), inline=False)
+  emb.add_field(name="New Member", value="Welcome to SASRP, <@%s>! Have a great time with your RP. Before going anywhere, feel free to check out the useful links text channel! If you need staff, feel free to use @staff and staff will be with you as soon as possible! Also say '?INFORM' to get started! " % (member.id), inline=False)
   await client.send_message(welcome, embed=emb)
 
 @client.event
 async def on_ready():
   print("Management || Bot is Online and ready.")
   await client.change_presence(game=discord.Game(name="SASRP BOT | ?help"))
-
-@client.event 
-async def on_message(message):
-    if message.content.upper().startswith('?HELP'):
-        emb = (discord.Embed(description=None, colour=0x3DF270))
-        emb.add_field(name="Welcome to SASRP!",value="I am here to serve and protect this server. For version info, say `?cmds`. I am still being coded and I barely have commands, but that will change!",inline=False)
-        print("%s ran the ?help command!" % (message.author.id))
-        await client.send_message(message.channel, embed=emb)
 
 @client.event
 async def on_message(message):
@@ -60,7 +52,7 @@ async def on_message(message):
                                                     await client.send_message(message.channel, embed=emb2)
                                                     await client.send_message(chan, embed=emb)
     if message.content.upper().startswith('?INFORM'):
-                                                    embed = discord.Embed(name="SASRP's info".format(ctx.message.server.name), description="Here's what I could find.", color=0x00ff00)
+                                                    embed = discord.Embed(name="SASRP's info".format(message.server.name), description="Here's what I could find.", color=0x00ff00)
                                                     embed.set_author(name="SASRP")
                                                     embed.add_field(name="Name", value=ctx.message.server.name, inline=True)
                                                     embed.add_field(name="ID", value=ctx.message.server.id, inline=True)
@@ -99,7 +91,7 @@ async def on_message(message):
     if message.content.upper().startswith('?ADMINCMDS'):
                                                   embed3 = (discord.Embed(description=None, colour=0x00ff00))
                                                   embed3.set_author(name="Server Admin Commands")
-                                                  embed3.add_field(name="?NP(your announcement)", value="?MPS(your words)", inline=True)
-                                                  embed3.add_field(name="Puts your announcement in the announcement channel", value="Announces your words to everyone that server needs more players online", inline=True)
+                                                  embed3.add_field(name="?NP(your announcement)1", value="?MPS(your words)2", inline=True)
+                                                  embed3.add_field(name="1Puts your announcement in the announcement channel", value="Announces your words to everyone that server needs more players online2", inline=True)
                                                   await client.send_message(message.channel, embed=embed3)
 client.run("NDI5MzA2MTg5NDM2NjgyMjUw.DaFBeg.pC3p28UI3ZZIfAg08Rfr_0AR8AI")
