@@ -54,11 +54,11 @@ async def on_message(message):
     if message.content.upper().startswith('?INFORM'):
                                                     embed = discord.Embed(name="SASRP's info".format(message.server.name), description="Here's what I could find.", color=0x00ff00)
                                                     embed.set_author(name="SASRP")
-                                                    embed.add_field(name="Name", value=ctx.message.server.name, inline=True)
-                                                    embed.add_field(name="ID", value=ctx.message.server.id, inline=True)
-                                                    embed.add_field(name="Roles", value=len(ctx.message.server.roles), inline=True)
-                                                    embed.add_field(name="Members", value=len(ctx.message.server.members))
-                                                    await client.say(embed=embed)
+                                                    embed.add_field(name="Name", value=message.server.name, inline=True)
+                                                    embed.add_field(name="ID", value=message.server.id, inline=True)
+                                                    embed.add_field(name="Roles", value=len(message.server.roles), inline=True)
+                                                    embed.add_field(name="Members", value=len(message.server.members))
+                                                    await client.message(message.channel, embed=embed)
     if message.content.upper().startswith('?LINKS'):
                                                     await client.send_message(message.channel, "Website-http://www.sas-rp.com/ , CAD-http://cad.sas-rp.com/home")
     if message.content.upper().startswith('?NP'):
