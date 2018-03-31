@@ -20,7 +20,7 @@ async def on_member_join(member):
   role = discord.utils.get(member.server.roles, name="Member")
   await client.add_roles(member, role)
   emb = (discord.Embed(description=None, colour=0x3DF270))
-  welcome = client.get_channel("427122214542901258")
+  welcome = client.get_channel("417043672144543765")
   emb.add_field(name="New Member", value="Welcome to SASRP, <@%s>! Have a great time with your RP. Before going anywhere, feel free to check out the useful links text channel! If you need staff, feel free to use @staff and staff will be with you as soon as possible! " % (member.id), inline=False)
   await client.send_message(welcome, embed=emb)
 
