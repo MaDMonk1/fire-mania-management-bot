@@ -44,7 +44,7 @@ async def on_message(message):
 async def on_message(message):
     if message.content.upper().startswith('?TICKET'):
                                                     args = message.content.split(" ")
-                                                    chan = client.get_channel("427122214542901258")
+                                                    chan = client.get_channel("428731112559476756")
                                                     emb = (discord.Embed(description=None, colour=0x3DF270))
                                                     emb.add_field(name="Bug Report Ticket by %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
                                                     emb2 = (discord.Embed(description=None, colour=0x3DF270))
