@@ -46,7 +46,7 @@ async def on_message_edit(before, after):
   await client.send_message(logschannel, embed=emb)
   
 @bot.command()
-async def help(ctx, arg):
+async def foo(ctx, arg):
     await ctx.send(arg)
  
 @client.event
