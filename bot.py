@@ -58,7 +58,7 @@ async def on_message(message):
                                                     embed.add_field(name="ID", value=message.server.id, inline=True)
                                                     embed.add_field(name="Roles", value=len(message.server.roles), inline=True)
                                                     embed.add_field(name="Members", value=len(message.server.members))
-                                                    await client.message(message.channel, embed=embed)
+                                                    await client.send_message(message.channel, embed=embed)
     if message.content.upper().startswith('?LINKS'):
                                                     await client.send_message(message.channel, "Website-http://www.sas-rp.com/ , CAD-http://cad.sas-rp.com/home")
     if message.content.upper().startswith('?NP'):
