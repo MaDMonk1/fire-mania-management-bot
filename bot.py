@@ -27,7 +27,7 @@ async def on_member_join(member):
 @client.event
 async def on_ready():
   print("Management || Bot is Online and ready.")
-  await client.change_presence(game=discord.Game(name="SASRP BOT | ?help"))
+  await client.change_presence(game=discord.Game(name="SASRP BOT | ?cmds"))
 
 @client.event
 async def on_message(message):
@@ -69,7 +69,7 @@ async def on_message(message):
                                                   embed2 = (discord.Embed(description=None, colour=0x00ff00))
                                                   embed2.add_field(name="You Have Successfully Announced Your Words!", value="You Have Made An Announcement! You Have Announced The Following: %s" % (" ".join(args[1:])), inline=False)
                                                   await client.send_message(message.channel, embed=embed2)
-                                                  await client.send_message(chan, embed=emb)
+                                                  await client.send_message(chan, embed=embed)
     if message.content.upper().startswith('?MPS'):
                                                  args = message.content.split(" ")
                                                  chan = client.get_channel("417033016930467873")
@@ -78,7 +78,7 @@ async def on_message(message):
                                                  embed2 = (discord.Embed(description=None, colour=0x00ff00))
                                                  embed2.add_field(name="You Have Successfully Announced Your MPS!", value="You Have Made A MPS Announcement! You Have Announced The Following MPS: %s" % (" ".join(args[1:])), inline=False)
                                                  await client.send_message(message.channel, embed=embed2)
-                                                 await client.send_message(chan, embed=emb)
+                                                 await client.send_message(chan, embed=embed)
 
     if message.content.upper().startswith('?CMDS'):
                                                   embed3 = (discord.Embed(description=None, colour=0x00ff00))
