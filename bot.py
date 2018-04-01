@@ -83,6 +83,6 @@ async def on_message(message):
         await client.send_message(message.channel, "Here's your cookie :cookie: . Almost forgot your milk :milk:!")
     if message.content.upper().startswith('?PING'):
         userID = message.author.id
-        await client.send_message(message.channel, "@%S :ping_pong: pong!")
+        await client.send_message(message.channel, ":ping_pong: pong!")
 
 client.run("NDI5MzA2MTg5NDM2NjgyMjUw.DaHimw.qdy9hND0D4lTtkEZotjUB8w9GvU")
