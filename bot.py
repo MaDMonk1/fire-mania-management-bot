@@ -59,23 +59,29 @@ async def on_message(message):
     if message.content.upper().startswith('?LINKS'):
                                                     await client.send_message(message.channel, "Website-http://www.sas-rp.com/ , CAD-http://cad.sas-rp.com/home")
     if message.content.upper().startswith('?NP'):
-                                                  args = message.content.split(" ")
-                                                  chan = client.get_channel("421382437910872084")
-                                                  embed = (discord.Embed(description=None, colour=0x00ff00))
-                                                  embed.add_field(name="Admin Announcement By %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
-                                                  embed2 = (discord.Embed(description=None, colour=0x00ff00))
-                                                  embed2.add_field(name="You Have Successfully Announced Your Words!", value="You Have Made An Announcement! You Have Announced The Following: %s" % (" ".join(args[1:])), inline=False)
-                                                  await client.send_message(message.channel, embed=embed2)
-                                                  await client.send_message(chan, embed=embed)
+        if "417059335634681856" in [role.id for role in message.author.roles]:
+                                                                             args = message.content.split(" ")
+                                                                             chan = client.get_channel("421382437910872084")
+                                                                             embed = (discord.Embed(description=None, colour=0x00ff00))
+                                                                             embed.add_field(name="Admin Announcement By %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
+                                                                             embed2 = (discord.Embed(description=None, colour=0x00ff00))
+                                                                             embed2.add_field(name="You Have Successfully Announced Your Words!", value="You Have Made An Announcement! You Have Announced The Following: %s" % (" ".join(args[1:])), inline=False)
+                                                                             await client.send_message(message.channel, embed=embed2)
+                                                                             await client.send_message(chan, embed=embed)
+        else:
+            await client.send_message(message.channel, "You Do Not Have Permission")
     if message.content.upper().startswith('?MPS'):
-                                                 args = message.content.split(" ")
-                                                 chan = client.get_channel("417033016930467873")
-                                                 embed = (discord.Embed(description=None, colour=0x00ff00))
-                                                 embed.add_field(name="More Players Announcement By %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
-                                                 embed2 = (discord.Embed(description=None, colour=0x00ff00))
-                                                 embed2.add_field(name="You Have Successfully Announced Your MPS!", value="You Have Made A MPS Announcement! You Have Announced The Following MPS: %s" % (" ".join(args[1:])), inline=False)
-                                                 await client.send_message(message.channel, embed=embed2)
-                                                 await client.send_message(chan, embed=embed)
+        if "417059335634681856" in [role.id for role in message.author.roles]:
+                                                                             args = message.content.split(" ")
+                                                                             chan = client.get_channel("417033016930467873")
+                                                                             embed = (discord.Embed(description=None, colour=0x00ff00))
+                                                                             embed.add_field(name="More Players Announcement By %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
+                                                                             embed2 = (discord.Embed(description=None, colour=0x00ff00))
+                                                                             embed2.add_field(name="You Have Successfully Announced Your MPS!", value="You Have Made A MPS Announcement! You Have Announced The Following MPS: %s" % (" ".join(args[1:])), inline=False)
+                                                                             await client.send_message(message.channel, embed=embed2)
+                                                                             await client.send_message(chan, embed=embed)
+        else:
+            await client.send_message(message.channel, "You Do Not Have Permission")
 
     if message.content.upper().startswith('?CMDS'):
                                                   embed3 = (discord.Embed(description=None, colour=0x00ff00))
@@ -86,12 +92,15 @@ async def on_message(message):
                                                   embed3.add_field(name="N/A", value="N/A", inline=True)
                                                   await client.send_message(message.channel, embed=embed3)
     if message.content.upper().startswith('?ADMINCMDS'):
-                                                  embed3 = (discord.Embed(description=None, colour=0x00ff00))
-                                                  embed3.set_author(name="Server Admin Commands")
-                                                  embed3.add_field(name="?NP(your announcement)", value="?MPS(ask for more players)", inline=True)
-                                                  embed3.add_field(name="N/A", value="N/A", inline=True)
-                                                  embed3.add_field(name="?WARN @(WARNED PERSON) For (your words)", value="N/A", inline=True)
-                                                  await client.send_message(message.channel, embed=embed3)
+        if "417059335634681856" in [role.id for role in message.author.roles]:
+                                                                             embed3 = (discord.Embed(description=None, colour=0x00ff00))
+                                                                             embed3.set_author(name="Server Admin Commands")
+                                                                             embed3.add_field(name="?NP(your announcement)", value="?MPS(ask for more players)", inline=True)
+                                                                             embed3.add_field(name="N/A", value="N/A", inline=True)
+                                                                             embed3.add_field(name="?WARN @(WARNED PERSON) For (your words)", value="N/A", inline=True)
+                                                                             await client.send_message(message.channel, embed=embed3)
+        else:
+            await client.send_message(message.channel, "You Do Not Have Permission")
     if message.content == "cookies and milk":
         await client.send_message(message.channel, "Here's your cookie :cookie: . Almost forgot your milk :milk:!")
     if message.content.upper().startswith('?PING'):
