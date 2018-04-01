@@ -70,19 +70,32 @@ async def on_message(message):
                                                   embed3.set_author(name="Server Commands")
                                                   embed3.add_field(name="?INFORM", value="?LINKS", inline=True)
                                                   embed3.add_field(name="-gives you server information", value="-gives you links to the website and the CAD", inline=True)
-                                                  embed3.add_field(name="?PING", value="cookies and milk", inline=True)
-                                                  embed3.add_field(name="-Plays Ping-Pong", value="-gives you cookies and milk", inline=True)
+                                                  embed3.add_field(name="N/A", value="N/A", inline=True)
+                                                  embed3.add_field(name="N/A", value="N/A", inline=True)
                                                   await client.send_message(message.channel, embed=embed3)
     if message.content.upper().startswith('?ADMINCMDS'):
                                                   embed3 = (discord.Embed(description=None, colour=0x00ff00))
                                                   embed3.set_author(name="Server Admin Commands")
-                                                  embed3.add_field(name="?NP(your announcement)", value="?MPS(your words)", inline=True)
-                                                  embed3.add_field(name="Puts your announcement in the announcement channel", value="Announces your words to everyone that server needs more players online2", inline=True)
+                                                  embed3.add_field(name="?NP(your announcement)", value="?MPS(ask for more players)", inline=True)
+                                                  embed3.add_field(name="N/A", value="N/A", inline=True)
+                                                  embed3.add_field(name="?WARN @(WARNED PERSON) For (your words)", value="N/A", inline=True)
                                                   await client.send_message(message.channel, embed=embed3)
     if message.content == "cookies and milk":
         await client.send_message(message.channel, "Here's your cookie :cookie: . Almost forgot your milk :milk:!")
     if message.content.upper().startswith('?PING'):
         userID = message.author.id
         await client.send_message(message.channel, ":ping_pong: pong!")
-
+    if message.content.upper().startswith('?WARN'):
+        if "417059335634681856" in [role.id for role in message.author.roles]:
+                                                                              args = message.content.split(" ")
+                                                                              chan = client.get_channel("429808605236035595")
+                                                                              embed = (discord.Embed(description=None, colour=0x00ff00))
+                                                                              embed.add_field(name="Someone Has Been Warned By %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
+                                                                              embed2 = (discord.Embed(description=None, colour=0x00ff00))
+                                                                              embed2.add_field(name="You Have Successfully Warned Somebody!", value="You Have Warned Someone! You Have Warned Them For The Following: %s" % (" ".join(args[1:])), inline=False)
+                                                                              await client.send_message(message.channel, embed=embed2)
+                                                                              await client.send_message(chan, embed=embed)
+        else:
+            await client.send_message(message.channel, "You Do Not Have Permission")
+            
 client.run("NDI5MzA2MTg5NDM2NjgyMjUw.DaHimw.qdy9hND0D4lTtkEZotjUB8w9GvU")
