@@ -10,6 +10,9 @@ import sqlite3
 
 client = commands.Bot(command_prefix = "?")
 
+chat_filter = ["NIG", "NIGGER", "NIGGA", "N1GG3R", "JEW", "JEWS"]
+bypass_list = [" "]
+
 @client.event
 async def on_member_join(member):
   role = discord.utils.get(member.server.roles, name="Member")
@@ -27,6 +30,15 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    contents = message.content.split(" ")
+    for word in contents:
+        if word.upper() in chat_filter:
+            if not message.author.id in bypass_list:
+                try:
+                    await client.delete_message(message)
+                    await client.send_message(message.channel, "**HEY DONT SAY THAT!!**")
+                except discord.errors.NotFound:
+                    return
     if message.content.upper().startswith('?TICKET'):
                                                     args = message.content.split(" ")
                                                     chan = client.get_channel("428731112559476756")
@@ -97,5 +109,19 @@ async def on_message(message):
                                                                               await client.send_message(chan, embed=embed)
         else:
             await client.send_message(message.channel, "You Do Not Have Permission")
-            
+    if message.content.upper().startswith('?MUTE'):
+        if "417059335634681856" in [role.id for role in message.author.roles]:
+           muted = discord.utils.get(message.server.roles, name="Muted")
+           await client.add_roles(message.mentions[0], muted)
+           await client.send_message(message.channel, "<@%s> :white_check_mark: You have muted <@%s>! Run `?unmute @user` to unmute this user!" % (message.author.id, message.mentions[0].id))
+        else:
+           await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run that command!" % (message.author.id))
+
+    if message.content.upper().startswith('?UNMUTE'):
+       if "419904679124664321" in [role.id for role in message.author.roles]:
+           muted = discord.utils.get(message.server.roles, name="Muted")
+           await client.remove_roles(message.mentions[0], muted)
+           await client.send_message(message.channel, "<@%s> :white_check_mark: You have unmuted <@%s>! Made a mistake? Use `?mute @user`" % (message.author.id, message.mentions[0].id))
+       else:
+           await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run that command!" % (message.author.id))
 client.run("NDI5MzA2MTg5NDM2NjgyMjUw.DaHimw.qdy9hND0D4lTtkEZotjUB8w9GvU")
