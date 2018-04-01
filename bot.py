@@ -70,8 +70,8 @@ async def on_message(message):
                                                   embed3.set_author(name="Server Commands")
                                                   embed3.add_field(name="?INFORM", value="?LINKS", inline=True)
                                                   embed3.add_field(name="-gives you server information", value="-gives you links to the website and the CAD", inline=True)
-                                                  embed3.add_field(name="N/A", value="N/A", inline=True)
-                                                  embed3.add_field(name="N/A", value="N/A", inline=True)
+                                                  embed3.add_field(name="?PING", value="cookies and milk", inline=True)
+                                                  embed3.add_field(name="-Plays Ping-Pong", value="-gives you cookies and milk", inline=True)
                                                   await client.send_message(message.channel, embed=embed3)
     if message.content.upper().startswith('?ADMINCMDS'):
                                                   embed3 = (discord.Embed(description=None, colour=0x00ff00))
@@ -83,6 +83,6 @@ async def on_message(message):
         await client.send_message(message.channel, "Here's your cookie :cookie: . Almost forgot your milk :milk:!")
     if message.content.upper().startswith('?PING'):
         userID = message.author.id
-        await client.send_message(message.channel, "<@%s> :ping_pong: pong!")
+        await client.send_message(message.channel, "@%S :ping_pong: pong!")
 
 client.run("NDI5MzA2MTg5NDM2NjgyMjUw.DaHimw.qdy9hND0D4lTtkEZotjUB8w9GvU")
