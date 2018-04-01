@@ -1,18 +1,13 @@
 import discord
 from discord.ext.commands import Bot
 from discord.ext import commands
+from discord.voice_client import VoiceClient
 import asyncio
 import time
 import random
 import datetime
 import sqlite3
 
-coinconn = sqlite3.connect('coinStorage.db')
-c = coinconn.cursor()
-chat_filter = ["NIG,NIGGER, NIGGA,NIGGAR,N1GG3R,JEW,JEWS"]
-bypass_list = [" "]
-
-Client = discord.Client()
 client = commands.Bot(command_prefix = "?")
 
 @client.event
@@ -29,17 +24,7 @@ async def on_ready():
   print("Management || Bot is Online and ready.")
   await client.change_presence(game=discord.Game(name="SASRP BOT | ?cmds"))
 
-@client.event
-async def on_message(message):
-    contents = message.content.split(" ")
-    for word in contents:
-          if word.upper() in chat_filter:
-              if not message.author.id in bypass_list:
-                  try:
-                      await client.delete_message(message)
-                      await client.send_message(message.channel, "**HEY, DON'T SAY THAT!**")
-                  except discord.errors.NotFound:
-                      return
+
 @client.event
 async def on_message(message):
     if message.content.upper().startswith('?TICKET'):
@@ -91,7 +76,13 @@ async def on_message(message):
     if message.content.upper().startswith('?ADMINCMDS'):
                                                   embed3 = (discord.Embed(description=None, colour=0x00ff00))
                                                   embed3.set_author(name="Server Admin Commands")
-                                                  embed3.add_field(name="?NP(your announcement)1", value="?MPS(your words)2", inline=True)
-                                                  embed3.add_field(name="1Puts your announcement in the announcement channel", value="Announces your words to everyone that server needs more players online2", inline=True)
+                                                  embed3.add_field(name="?NP(your announcement)", value="?MPS(your words)", inline=True)
+                                                  embed3.add_field(name="Puts your announcement in the announcement channel", value="Announces your words to everyone that server needs more players online2", inline=True)
                                                   await client.send_message(message.channel, embed=embed3)
-client.run("NDI5MzA2MTg5NDM2NjgyMjUw.DaFBeg.pC3p28UI3ZZIfAg08Rfr_0AR8AI")
+    if message.content == "cookies and milk":
+        await client.send_message(message.channel, "Here's your cookie :cookie: . Almost forgot your milk :milk:!")
+    if message.content.upper().startswith('?PING'):
+        userID = message.author.id
+        await client.send_message(message.channel, "<@%s> :ping_pong: pong!")
+
+client.run("NDI5MzA2MTg5NDM2NjgyMjUw.DaHimw.qdy9hND0D4lTtkEZotjUB8w9GvU")
