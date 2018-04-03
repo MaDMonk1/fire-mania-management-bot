@@ -68,6 +68,7 @@ async def on_message(message):
                                                                              embed2.add_field(name="You Have Successfully Announced Your Words!", value="You Have Made An Announcement! You Have Announced The Following: %s" % (" ".join(args[1:])), inline=False)
                                                                              await client.send_message(message.channel, embed=embed2)
                                                                              await client.send_message(chan, embed=embed)
+                                                                             await client.send_message(message.channel, "@everyone")
         else:
             await client.send_message(message.channel, "You Do Not Have Permission")
     if message.content.upper().startswith('?MPS'):
@@ -80,6 +81,7 @@ async def on_message(message):
                                                                              embed2.add_field(name="You Have Successfully Announced Your MPS!", value="You Have Made A MPS Announcement! You Have Announced The Following MPS: %s" % (" ".join(args[1:])), inline=False)
                                                                              await client.send_message(message.channel, embed=embed2)
                                                                              await client.send_message(chan, embed=embed)
+                                                                             await client.send_message(message.channel, "@everyone")
         else:
             await client.send_message(message.channel, "You Do Not Have Permission")
 
