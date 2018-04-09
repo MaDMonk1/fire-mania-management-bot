@@ -135,4 +135,27 @@ async def on_message(message):
            await client.send_message(message.channel, "<@%s> :white_check_mark: You have unmuted <@%s>! Made a mistake? Use `?mute @user`" % (message.author.id, message.mentions[0].id))
        else:
            await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run that command!" % (message.author.id))
+    if message.content.upper().startswith('?8BALL'):
+        userID = message.author.id
+        randnum = random.randint(1,11)
+        if randnum == 1:
+            await client.send_message(message.channel,"<@%s> :8ball: It is likely. :8ball:" % (userID))
+        if randnum == 2:
+            await client.send_message(message.channel, "<@%s> :8ball: I am afraid not. :8ball:" % (userID))
+        if randnum == 3:
+            await client.send_message(message.channel, "<@%s> :8ball: I do not see it in the future. :8ball:" % (userID))
+        if randnum == 4:
+            await client.send_message(message.channel, "<@%s> :8ball: Very possible. :8ball:" % (userID))
+        if randnum == 5:
+            await client.send_message(message.channel, "<@%s> :8ball: There is a very bad chance. :8ball:" % (userID))
+        if randnum == 6:
+            await client.send_message(message.channel, "<@%s> :8ball: I see it in the future. :8ball:" % (userID))
+        if randnum == 7:
+            await client.send_message(message.channel, "<@%s> :8ball: There is an great chance. :8ball:" % (userID))
+        if randnum == 8:
+            await client.send_message(message.channel, "<@%s> :8ball: I do not see this happening. :8ball:" % (userID))
+        if randnum == 9:
+            await client.send_message(message.channel, "<@%s> :8ball: I see something positive. :8ball:" % (userID))
+        if randnum == 10:
+            await client.send_message(message.channel, "<@%s> :8ball: I don't see it. You may as well walk away. :8ball:" % (userID))
 client.run("NDI5MzA2MTg5NDM2NjgyMjUw.DaHimw.qdy9hND0D4lTtkEZotjUB8w9GvU")
