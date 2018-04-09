@@ -90,8 +90,8 @@ async def on_message(message):
                                                   embed3.set_author(name="Server Commands")
                                                   embed3.add_field(name="?INFORM", value="?LINKS", inline=True)
                                                   embed3.add_field(name="-gives you server information", value="-gives you links to the website and the CAD", inline=True)
-                                                  embed3.add_field(name="N/A", value="N/A", inline=True)
-                                                  embed3.add_field(name="N/A", value="N/A", inline=True)
+                                                  embed3.add_field(name="?8BALL", value="N/A", inline=True)
+                                                  embed3.add_field(name="-gives you a random message", value="N/A", inline=True)
                                                   await client.send_message(message.channel, embed=embed3)
     if message.content.upper().startswith('?ADMINCMDS'):
         if "417059335634681856" in [role.id for role in message.author.roles]:
