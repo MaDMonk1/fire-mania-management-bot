@@ -158,4 +158,7 @@ async def on_message(message):
             await client.send_message(message.channel, "<@%s> :8ball: I see something positive. :8ball:" % (userID))
         if randnum == 10:
             await client.send_message(message.channel, "<@%s> :8ball: I don't see it. You may as well walk away. :8ball:" % (userID))
+    if message.content.upper().startswith('?LOL'):
+        userID = message.author.id
+        await client.send_message(message.channel, "<@%s> :joy: You Are A Loner :joy:" % (userID))
 client.run("NDI5MzA2MTg5NDM2NjgyMjUw.DaHimw.qdy9hND0D4lTtkEZotjUB8w9GvU")
