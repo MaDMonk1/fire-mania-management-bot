@@ -18,7 +18,7 @@ async def on_member_join(member):
   role = discord.utils.get(member.server.roles, name="Member")
   await client.add_roles(member, role)
   emb = (discord.Embed(description=None, colour=0x3DF270))
-  welcome = client.get_channel("417043672144543765")
+  welcome = client.get_channel("443483341354696724")
   emb.add_field(name="New Member", value="Welcome to SASRP, <@%s>! Have a great time with your RP. Before going anywhere, feel free to check out the useful links text channel! If you need staff, feel free to use @staff and staff will be with you as soon as possible! Also say '?INFORM' to get started! " % (member.id), inline=False)
   await client.send_message(welcome, embed=emb)
 
@@ -41,7 +41,7 @@ async def on_message(message):
                     return
     if message.content.upper().startswith('?TICKET'):
                                                     args = message.content.split(" ")
-                                                    chan = client.get_channel("428731112559476756")
+                                                    chan = client.get_channel("443485820721299457")
                                                     emb = (discord.Embed(description=None, colour=0x3DF270))
                                                     emb.add_field(name="Bug Report Ticket by %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
                                                     emb2 = (discord.Embed(description=None, colour=0x3DF270))
@@ -58,33 +58,6 @@ async def on_message(message):
                                                     await client.send_message(message.channel, embed=embed)
     if message.content.upper().startswith('?LINKS'):
                                                     await client.send_message(message.channel, "Website-http://www.sas-rp.com/ , CAD-http://cad.sas-rp.com/home")
-    if message.content.upper().startswith('?NP'):
-        if "417059335634681856" in [role.id for role in message.author.roles]:
-                                                                             args = message.content.split(" ")
-                                                                             chan = client.get_channel("421382437910872084")
-                                                                             embed = (discord.Embed(description=None, colour=0x00ff00))
-                                                                             embed.add_field(name="Admin Announcement By %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
-                                                                             embed2 = (discord.Embed(description=None, colour=0x00ff00))
-                                                                             embed2.add_field(name="You Have Successfully Announced Your Words!", value="You Have Made An Announcement! You Have Announced The Following: %s" % (" ".join(args[1:])), inline=False)
-                                                                             await client.send_message(message.channel, embed=embed2)
-                                                                             await client.send_message(chan, embed=embed)
-                                                                             await client.send_message(message.channel, "@everyone")
-        else:
-            await client.send_message(message.channel, "You Do Not Have Permission")
-    if message.content.upper().startswith('?MPS'):
-        if "417059335634681856" in [role.id for role in message.author.roles]:
-                                                                             args = message.content.split(" ")
-                                                                             chan = client.get_channel("417033016930467873")
-                                                                             embed = (discord.Embed(description=None, colour=0x00ff00))
-                                                                             embed.add_field(name="More Players Announcement By %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
-                                                                             embed2 = (discord.Embed(description=None, colour=0x00ff00))
-                                                                             embed2.add_field(name="You Have Successfully Announced Your MPS!", value="You Have Made A MPS Announcement! You Have Announced The Following MPS: %s" % (" ".join(args[1:])), inline=False)
-                                                                             await client.send_message(message.channel, embed=embed2)
-                                                                             await client.send_message(chan, embed=embed)
-                                                                             await client.send_message(message.channel, "@everyone")
-        else:
-            await client.send_message(message.channel, "You Do Not Have Permission")
-
     if message.content.upper().startswith('?CMDS'):
                                                   embed3 = (discord.Embed(description=None, colour=0x00ff00))
                                                   embed3.set_author(name="Server Commands")
@@ -109,9 +82,9 @@ async def on_message(message):
         userID = message.author.id
         await client.send_message(message.channel, ":ping_pong: pong!")
     if message.content.upper().startswith('?WARN'):
-        if "417059335634681856" in [role.id for role in message.author.roles]:
+        if "443478160340680725" in [role.id for role in message.author.roles]:
                                                                               args = message.content.split(" ")
-                                                                              chan = client.get_channel("429808605236035595")
+                                                                              chan = client.get_channel("443486152754724904")
                                                                               embed = (discord.Embed(description=None, colour=0x00ff00))
                                                                               embed.add_field(name="Someone Has Been Warned By %s" % (message.author), value="%s" % (" ".join(args[1:])), inline=False)
                                                                               embed2 = (discord.Embed(description=None, colour=0x00ff00))
@@ -120,21 +93,6 @@ async def on_message(message):
                                                                               await client.send_message(chan, embed=embed)
         else:
             await client.send_message(message.channel, "You Do Not Have Permission")
-    if message.content.upper().startswith('?MUTE'):
-        if "417059335634681856" in [role.id for role in message.author.roles]:
-           muted = discord.utils.get(message.server.roles, name="Muted")
-           await client.add_roles(message.mentions[0], muted)
-           await client.send_message(message.channel, "<@%s> :white_check_mark: You have muted <@%s>! Run `?unmute @user` to unmute this user!" % (message.author.id, message.mentions[0].id))
-        else:
-           await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run that command!" % (message.author.id))
-
-    if message.content.upper().startswith('?UNMUTE'):
-       if "419904679124664321" in [role.id for role in message.author.roles]:
-           muted = discord.utils.get(message.server.roles, name="Muted")
-           await client.remove_roles(message.mentions[0], muted)
-           await client.send_message(message.channel, "<@%s> :white_check_mark: You have unmuted <@%s>! Made a mistake? Use `?mute @user`" % (message.author.id, message.mentions[0].id))
-       else:
-           await client.send_message(message.channel, "<@%s> :x: You are not an admin and cannot run that command!" % (message.author.id))
     if message.content.upper().startswith('?8BALL'):
         userID = message.author.id
         randnum = random.randint(1,11)
