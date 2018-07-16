@@ -64,23 +64,7 @@ async def on_message(message):
                                                     embed.add_field(name="Members", value=len(message.server.members))
                                                     await client.send_message(message.channel, embed=embed)
     if message.content.upper().startswith('?CMDS'):
-                                                  embed3 = (discord.Embed(description=None, colour=0x00ff00))
-                                                  embed3.set_author(name="Server Commands")
-                                                  embed3.add_field(name="?INFORM", value="", inline=False)
-                                                  embed3.add_field(name="-gives you server information", value="", inline=False)
-                                                  embed3.add_field(name="?8BALL", value="?LOL", inline=False)
-                                                  embed3.add_field(name="-gives you a random message", value="Well...", inline=False)
-                                                  await client.send_message(message.channel, embed=embed3)
-    if message.content.upper().startswith('?ADMINCMDS'):
-        if "465702997515829268" in [role.id for role in message.author.roles]:
-                                                                             embed3 = (discord.Embed(description=None, colour=0x00ff00))
-                                                                             embed3.set_author(name="Server Admin Commands")
-                                                                             embed3.add_field(name="?NP(your announcement)", value="", inline=False)
-                                                                             embed3.add_field(name="", value="", inline=False)
-                                                                             embed3.add_field(name="?WARN @(WARNED PERSON) For (your words)", value="", inline=False)
-                                                                             await client.send_message(message.channel, embed=embed3)
-        else:
-            await client.send_message(message.channel, "You Do Not Have Permission")
+                                                  await client.send_message(message.channel, "https://imgur.com/a/5xqklXm")
     if message.content == "cookies and milk":
         await client.send_message(message.channel, "Here's your cookie :cookie: . Almost forgot your milk :milk:!")
     if message.content.upper().startswith('?PING'):
